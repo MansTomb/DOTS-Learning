@@ -1,0 +1,45 @@
+{
+    "name": "Input Actions",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "057b9ad1-a498-4a6f-b720-4bfacee22445",
+            "actions": [
+                {
+                    "name": "Upgrade Node",
+                    "type": "Button",
+                    "id": "a3b6d38c-f4d5-42d8-9100-181cf9e497c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "MultiTap"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0e74f0a2-501e-4228-8583-5c0df3c79532",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "Upgrade Node",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Mouse",
+            "bindingGroup": "Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
