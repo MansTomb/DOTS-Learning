@@ -1,4 +1,6 @@
-﻿using Unity.Entities;
+﻿using TMPro;
+using UI;
+using Unity.Entities;
 using Unity.Mathematics;
 
 namespace Components
@@ -19,6 +21,15 @@ namespace Components
 
         public float timeFromLastSpawn;
         public float timeFromLastDecay;
+    }
+
+    [GenerateAuthoringComponent]
+    public class NodeUIData : IComponentData
+    {
+        public NodeUI label;
+        public float3 offset;
+
+        public float lastUpdate;
     }
 
     public struct NodeUpgradeInProgress : IComponentData

@@ -1,10 +1,14 @@
 using Components;
+using TMPro;
+using UI;
 using Unity.Entities;
 using UnityEngine;
 
 [DisallowMultipleComponent]
 public class NodeConverter : MonoBehaviour, IConvertGameObjectToEntity
 {
+    [SerializeField] private Vector3 offset;
+    
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
         dstManager.AddComponentData(entity, new UnderControl());
@@ -16,6 +20,11 @@ public class NodeConverter : MonoBehaviour, IConvertGameObjectToEntity
             spawnRate = 1,
             upgradeCost = 5,
             upgradeTime = 2
+        });
+        dstManager.AddComponentData(entity, new NodeUIData()
+        {
+            label = NodeUIPool.Instance.Get(),
+            offset = offset
         });
     }
 }
