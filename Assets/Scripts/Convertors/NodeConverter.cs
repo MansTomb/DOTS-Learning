@@ -2,6 +2,7 @@ using Components;
 using TMPro;
 using UI;
 using Unity.Entities;
+using Unity.Rendering;
 using UnityEngine;
 
 [DisallowMultipleComponent]

@@ -14,12 +14,12 @@ namespace Systems
     {
         protected override void OnUpdate()
         {
-            var physicsWorld = World.GetOrCreateSystem<BuildPhysicsWorld>().PhysicsWorld;
-            var collisionWorld = World.GetOrCreateSystem<BuildPhysicsWorld>().PhysicsWorld.CollisionWorld;
-            
             var input = GetSingleton<PlayerInput>();
             if (!input.nodeUpgraded)
                 return;
+
+            var physicsWorld = World.GetOrCreateSystem<BuildPhysicsWorld>().PhysicsWorld;
+            var collisionWorld = World.GetOrCreateSystem<BuildPhysicsWorld>().PhysicsWorld.CollisionWorld;
 
             var camera = Camera.main;
             var ray = camera.ScreenPointToRay(input.nodeUpgradedPosition);
