@@ -6,11 +6,12 @@ namespace UI
     public class NodeVisual : MonoBehaviour
     {
         [SerializeField] private GameObject[] levels;
+        [SerializeField] private ParticleSystem upgrade;
 
         private GameObject _currentVisual;
         private int _level;
 
-        public void TryUpdate(int level)
+        public void TryChangeLevel(int level)
         {
             if (_level != level)
             {
@@ -19,6 +20,21 @@ namespace UI
                 _currentVisual?.SetActive(false);
                 _currentVisual = levels[_level - 1];
                 _currentVisual.SetActive(true);
+            }
+        }
+        
+        public void TryStartUpgradeParticles(bool upgradeInProgress) {
+            if (upgradeInProgress)
+            {
+                if (upgrade.isPlaying)
+                    return;
+                
+                upgrade.Play(true);
+            }
+            else
+            {
+                if (upgrade.isPlaying)
+                    upgrade.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
         }
     }

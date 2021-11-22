@@ -33,6 +33,7 @@ namespace Systems
                     {
                         node.currentUnits -= settings.upgradeCost;
 
+                        settings.upgradeInProgress = true;
                         ecb.RemoveComponent<DoubleTapped>(entityInQueryIndex, entity);
                         ecb.AddComponent(entityInQueryIndex, entity, new NodeUpgradeInProgress() {progress = 0f});
                     }

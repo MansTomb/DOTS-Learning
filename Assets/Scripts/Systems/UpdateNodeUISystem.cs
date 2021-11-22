@@ -12,6 +12,7 @@ namespace Systems
             var tD = Time.DeltaTime;
             
             Entities
+                .WithAll<Node, NodeSettings>()
                 .WithoutBurst()
                 .ForEach((NodeUIData uiData, in Node data, in NodeSettings settings, in Translation translation) =>
                 {

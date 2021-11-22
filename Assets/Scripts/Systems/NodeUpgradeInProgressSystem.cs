@@ -27,12 +27,14 @@ namespace Systems
                     if (upgrade.progress < settings.upgradeTime)
                         return;
 
+                    settings.upgradeInProgress = false;
                     settings.level += 1;
                     settings.capacity *= 2;
                     settings.decayRate *= 0.5f;
                     settings.spawnRate /= 2f;
                     settings.upgradeCost *= 2;
                     settings.upgradeTime *= 1.25f;
+
                     ecb.RemoveComponent<NodeUpgradeInProgress>(entityInQueryIndex, entity);
                 })
                 .ScheduleParallel();

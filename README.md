@@ -12,6 +12,8 @@ What already done:
 3. Node can be upgraded by double tap. (Configurable levels still TODO)
 4. Node UI which show amount of units at it.
 5. Creating node from monobehaviour right into world
+6. Implemented node level visual representation and connected it to ECS
+7. Added particles when node upgrading.
 
 Todo:
 1. Create small 3x3 map.

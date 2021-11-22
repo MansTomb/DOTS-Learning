@@ -12,7 +12,8 @@ namespace Systems
                 .WithoutBurst()
                 .ForEach((NodeVisualData visualData, in NodeSettings settings) =>
                 {
-                    visualData.visual.TryUpdate(settings.level);
+                    visualData.visual.TryChangeLevel(settings.level);
+                    visualData.visual.TryStartUpgradeParticles(settings.upgradeInProgress);
                 }).Run();
         }
     }

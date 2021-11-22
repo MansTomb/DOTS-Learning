@@ -53,6 +53,8 @@ namespace Components
 
         public int upgradeCost;
         public float upgradeTime;
+
+        public bool upgradeInProgress;
     }
 
     public struct NodeOverflow : IComponentData {}
