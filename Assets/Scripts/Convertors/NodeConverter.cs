@@ -16,6 +16,8 @@ public class NodeConverter : MonoBehaviour, IConvertGameObjectToEntity
         dstManager.AddComponentData(entity, new Node());
         dstManager.AddComponentData(entity, new NodeSettings()
         {
+            level = 1,
+            maxLevel = 2,
             capacity = 10,
             decayRate = 1,
             spawnRate = 1,
@@ -24,8 +26,12 @@ public class NodeConverter : MonoBehaviour, IConvertGameObjectToEntity
         });
         dstManager.AddComponentData(entity, new NodeUIData()
         {
-            label = NodeUIPool.Instance.Get(),
+            label = Pool<NodeUI>.Instance.Get(),
             offset = offset
+        });
+        dstManager.AddComponentData(entity, new NodeVisualData()
+        {
+            visual = Pool<NodeVisual>.Instance.Get(),
         });
     }
 }

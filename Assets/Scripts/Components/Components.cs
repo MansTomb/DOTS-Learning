@@ -6,6 +6,7 @@ using Unity.Mathematics;
 namespace Components
 {
     public struct UnderControl : IComponentData { }
+    public struct UpdateVisual : IComponentData {}
 
     public struct PlayerInput : IComponentData
     {
@@ -23,13 +24,17 @@ namespace Components
         public float timeFromLastDecay;
     }
 
-    [GenerateAuthoringComponent]
     public class NodeUIData : IComponentData
     {
         public NodeUI label;
         public float3 offset;
 
         public float lastUpdate;
+    }
+    
+    public class NodeVisualData : IComponentData
+    {
+        public NodeVisual visual;
     }
 
     public struct NodeUpgradeInProgress : IComponentData
@@ -39,6 +44,9 @@ namespace Components
 
     public struct NodeSettings : IComponentData
     {
+        public int level;
+        public int maxLevel;
+        
         public int capacity;
         public float spawnRate;
         public float decayRate;
@@ -46,6 +54,7 @@ namespace Components
         public int upgradeCost;
         public float upgradeTime;
     }
+
     public struct NodeOverflow : IComponentData {}
     public struct NodeDefault : IComponentData {}
 }

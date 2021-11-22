@@ -26,7 +26,8 @@ namespace Systems
                     upgrade.progress += tD;
                     if (upgrade.progress < settings.upgradeTime)
                         return;
-                    
+
+                    settings.level += 1;
                     settings.capacity *= 2;
                     settings.decayRate *= 0.5f;
                     settings.spawnRate /= 2f;

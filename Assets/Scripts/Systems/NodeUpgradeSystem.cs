@@ -23,15 +23,16 @@ namespace Systems
                 .WithBurst()
                 .ForEach((Entity entity, int entityInQueryIndex, ref Node node, ref NodeSettings settings) =>
                 {
+                    if (settings.level == settings.maxLevel)
+                    {
+                        ecb.RemoveComponent<DoubleTapped>(entityInQueryIndex, entity);
+                        return;
+                    }
+
                     if (node.currentUnits > settings.upgradeCost) 
                     {
                         node.currentUnits -= settings.upgradeCost;
-                        
-                        settings.capacity *= 2;
-                        settings.decayRate *= 0.5f;
-                        settings.spawnRate /= 2f;
-                        settings.upgradeCost *= 2;
-                        
+
                         ecb.RemoveComponent<DoubleTapped>(entityInQueryIndex, entity);
                         ecb.AddComponent(entityInQueryIndex, entity, new NodeUpgradeInProgress() {progress = 0f});
                     }
