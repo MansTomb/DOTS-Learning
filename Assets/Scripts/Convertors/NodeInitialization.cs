@@ -15,10 +15,11 @@ namespace Convertors
         {
             _assetStore = new BlobAssetStore();
 
-            for (int i = 0; i < 1; i++)
-            {
-                Instantiate(nodePrefab);
-            }
+            var go = Instantiate(nodePrefab);
+            go.transform.position = new Vector3(-1 * 5, 0, 0);
+            
+            var go1 = Instantiate(nodePrefab);
+            go1.transform.position = new Vector3(1 * 5, 0, 0);
         }
 
         private void OnDestroy()

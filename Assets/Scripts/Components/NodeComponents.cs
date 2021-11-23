@@ -1,21 +1,9 @@
-﻿using TMPro;
-using UI;
+﻿using UI;
 using Unity.Entities;
 using Unity.Mathematics;
 
 namespace Components
 {
-    public struct UnderControl : IComponentData { }
-    public struct UpdateVisual : IComponentData {}
-
-    public struct PlayerInput : IComponentData
-    {
-        public bool nodeUpgraded;
-        public float3 nodeUpgradedPosition;
-    }
-    
-    public struct DoubleTapped : IComponentData { }
-    
     public struct Node : IComponentData
     {
         public int currentUnits;
@@ -27,14 +15,15 @@ namespace Components
     public class NodeUIData : IComponentData
     {
         public NodeUI label;
-        public float3 offset;
 
         public float lastUpdate;
+        public float3 offset;
     }
-    
+
     public class NodeVisualData : IComponentData
     {
         public NodeVisual visual;
+        public float3 offset;
     }
 
     public struct NodeUpgradeInProgress : IComponentData
@@ -46,7 +35,7 @@ namespace Components
     {
         public int level;
         public int maxLevel;
-        
+
         public int capacity;
         public float spawnRate;
         public float decayRate;
@@ -57,6 +46,11 @@ namespace Components
         public bool upgradeInProgress;
     }
 
-    public struct NodeOverflow : IComponentData {}
-    public struct NodeDefault : IComponentData {}
+    public struct NodeOverflow : IComponentData
+    {
+    }
+
+    public struct NodeDefault : IComponentData
+    {
+    }
 }

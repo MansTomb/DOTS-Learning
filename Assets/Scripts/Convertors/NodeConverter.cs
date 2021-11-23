@@ -2,6 +2,7 @@ using Components;
 using TMPro;
 using UI;
 using Unity.Entities;
+using Unity.Mathematics;
 using Unity.Rendering;
 using UnityEngine;
 
@@ -32,6 +33,7 @@ public class NodeConverter : MonoBehaviour, IConvertGameObjectToEntity
         dstManager.AddComponentData(entity, new NodeVisualData()
         {
             visual = Pool<NodeVisual>.Instance.Get(),
+            offset = new float3(0, 0, 0)
         });
     }
 }

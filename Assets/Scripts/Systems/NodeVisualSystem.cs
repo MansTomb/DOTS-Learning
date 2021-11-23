@@ -1,5 +1,6 @@
 ﻿using Components;
 using Unity.Entities;
+using Unity.Transforms;
 
 namespace Systems
 {
@@ -10,8 +11,9 @@ namespace Systems
             Entities
                 .WithAll<Node, NodeSettings>()
                 .WithoutBurst()
-                .ForEach((NodeVisualData visualData, in NodeSettings settings) =>
+                .ForEach((NodeVisualData visualData, in NodeSettings settings, in Translation translate) =>
                 {
+                    visualData.visual.transform.position = translate.Value + visualData.offset;
                     visualData.visual.TryChangeLevel(settings.level);
                     visualData.visual.TryStartUpgradeParticles(settings.upgradeInProgress);
                 }).Run();
