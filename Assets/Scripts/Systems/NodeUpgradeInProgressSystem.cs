@@ -20,6 +20,7 @@ namespace Systems
             
             Entities
                 .WithAll<Node, NodeUpgradeInProgress>()
+                .WithNone<Prefab>()
                 .WithBurst()
                 .ForEach((Entity entity, int entityInQueryIndex, ref Node node, ref NodeUpgradeInProgress upgrade, ref NodeSettings settings) =>
                 {

@@ -1,5 +1,7 @@
 ﻿using Components;
+using Unity.Collections;
 using Unity.Entities;
+using UnityEngine;
 
 namespace Systems
 {
@@ -10,6 +12,7 @@ namespace Systems
             var tD = Time.DeltaTime;
             Entities
                 .WithAll<Node, NodeDefault>()
+                .WithNone<Prefab>()
                 .WithBurst()
                 .ForEach((ref Node node, in NodeSettings settings) =>
                 {

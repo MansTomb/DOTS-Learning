@@ -11,6 +11,11 @@ namespace UI
         private GameObject _currentVisual;
         private int _level;
 
+        private void Awake()
+        {
+            upgrade.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        }
+
         public void TryChangeLevel(int level)
         {
             if (_level != level)

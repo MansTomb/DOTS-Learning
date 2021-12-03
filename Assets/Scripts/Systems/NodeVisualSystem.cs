@@ -10,6 +10,7 @@ namespace Systems
         {
             Entities
                 .WithAll<Node, NodeSettings>()
+                .WithNone<Prefab>()
                 .WithoutBurst()
                 .ForEach((NodeVisualData visualData, in NodeSettings settings, in Translation translate) =>
                 {

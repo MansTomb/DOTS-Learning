@@ -18,6 +18,7 @@ namespace Systems
             var ecb = _buffer.CreateCommandBuffer().AsParallelWriter();
             Entities
                 .WithAll<Node, UnderControl>()
+                .WithNone<Prefab>()
                 .WithBurst()
                 .ForEach((Entity entity, int entityInQueryIndex, in Node node, in NodeSettings settings) =>
                 {

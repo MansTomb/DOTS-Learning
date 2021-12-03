@@ -19,7 +19,7 @@ namespace Systems
 
             Entities
                 .WithAll<Node, DoubleTapped>()
-                .WithNone<NodeUpgradeInProgress>()
+                .WithNone<NodeUpgradeInProgress, Prefab>()
                 .WithBurst()
                 .ForEach((Entity entity, int entityInQueryIndex, ref Node node, ref NodeSettings settings) =>
                 {

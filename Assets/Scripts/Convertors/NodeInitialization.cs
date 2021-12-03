@@ -1,30 +1,45 @@
-﻿using System;
+﻿using Components;
 using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Convertors
 {
     public class NodeInitialization : MonoBehaviour
     {
-        [SerializeField] private GameObject nodePrefab;
-
-        private BlobAssetStore _assetStore;
-        private EntityManager _entityManager;
+        [SerializeField] private float x;
+        [SerializeField] private float y;
 
         private void Awake()
         {
-            _assetStore = new BlobAssetStore();
-
-            var go = Instantiate(nodePrefab);
-            go.transform.position = new Vector3(-1 * 5, 0, 0);
-            
-            var go1 = Instantiate(nodePrefab);
-            go1.transform.position = new Vector3(1 * 5, 0, 0);
+            x = 0f;
+            y = 0f;
         }
 
-        private void OnDestroy()
+        private void Update()
         {
-            _assetStore.Dispose();
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                y += 1;
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                y -= 1;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                x += 1;
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                x -= 1;
+            }
+            
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                var e = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntity(typeof(SpawnNode));
+                World.DefaultGameObjectInjectionWorld.EntityManager.SetComponentData(e, new SpawnNode() { location = new float3(x, y, 0)});;
+            }
         }
     }
 }

@@ -4,6 +4,11 @@ using Unity.Mathematics;
 
 namespace Components
 {
+    public struct SpawnNode : IComponentData
+    {
+        public float3 location;
+    }
+    
     public struct Node : IComponentData
     {
         public int currentUnits;

@@ -10,6 +10,7 @@ namespace Systems
             var tD = Time.DeltaTime;
             Entities
                 .WithAll<Node, NodeOverflow>()
+                .WithNone<Prefab>()
                 .WithBurst()
                 .ForEach((ref Node node, in NodeSettings settings) =>
                 {

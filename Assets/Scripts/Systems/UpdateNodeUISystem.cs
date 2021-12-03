@@ -13,6 +13,7 @@ namespace Systems
             
             Entities
                 .WithAll<Node, NodeSettings>()
+                .WithNone<Prefab>()
                 .WithoutBurst()
                 .ForEach((NodeUIData uiData, in Node data, in NodeSettings settings, in Translation translation) =>
                 {
