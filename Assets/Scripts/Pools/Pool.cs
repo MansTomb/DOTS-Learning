@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UI;
 using UnityEngine;
 
-namespace UI
+namespace Pools
 {
     public class Pool<T> : MonoBehaviour where T : MonoBehaviour
     {
@@ -33,4 +34,8 @@ namespace UI
             ui.gameObject.SetActive(false);
         }
     }
+    
+    public class NodeUIPool : Pool<NodeUI> { }
+    public class NodeVisualPool : Pool<NodeVisual> { }
+    public class UnitVisualPool : Pool<UnitVisual> {}
 }
