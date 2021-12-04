@@ -20,6 +20,7 @@ namespace Convertors
             DefaultOffset = offset;
 
             dstManager.AddComponentData(entity, new UnderControl());
+            dstManager.AddComponentData(entity, new CanBeSelected());
             dstManager.AddComponentData(entity, new Node());
             dstManager.AddComponentData(entity, DefaultSettings());
             dstManager.AddComponentData(entity, new NodeUIData());

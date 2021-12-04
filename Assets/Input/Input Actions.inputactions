@@ -12,6 +12,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "MultiTap"
+                },
+                {
+                    "name": "Selection",
+                    "type": "Button",
+                    "id": "607e4ebc-0251-46f8-a0c4-07223f623d1f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -23,6 +31,17 @@
                     "processors": "",
                     "groups": "Mouse",
                     "action": "Upgrade Node",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0375edc0-34fe-44ef-8bbb-04becc913a9f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "Selection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

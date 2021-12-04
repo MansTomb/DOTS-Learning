@@ -22,7 +22,7 @@ namespace Systems
             var collisionWorld = World.GetOrCreateSystem<BuildPhysicsWorld>().PhysicsWorld.CollisionWorld;
 
             var camera = Camera.main;
-            var ray = camera.ScreenPointToRay(input.nodeUpgradedPosition);
+            var ray = camera.ScreenPointToRay(input.doubleTapPosition);
             
             var hasHit = collisionWorld.CastRay(new RaycastInput()
             {

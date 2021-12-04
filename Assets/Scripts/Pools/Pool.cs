@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UI;
 using UnityEngine;
 
 namespace Pools
@@ -34,8 +33,4 @@ namespace Pools
             ui.gameObject.SetActive(false);
         }
     }
-    
-    public class NodeUIPool : Pool<NodeUI> { }
-    public class NodeVisualPool : Pool<NodeVisual> { }
-    public class UnitVisualPool : Pool<UnitVisual> {}
 }
