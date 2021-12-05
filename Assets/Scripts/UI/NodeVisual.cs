@@ -6,6 +6,7 @@ namespace UI
     public class NodeVisual : MonoBehaviour
     {
         [SerializeField] private GameObject[] levels;
+        [SerializeField] private MeshRenderer selectedRenderer;
         [SerializeField] private ParticleSystem upgrade;
 
         private GameObject _currentVisual;
@@ -25,6 +26,19 @@ namespace UI
                 _currentVisual?.SetActive(false);
                 _currentVisual = levels[_level - 1];
                 _currentVisual.SetActive(true);
+            }
+        }
+
+        public void TrySelect(bool selected)
+        {
+            if (selected)
+            {
+                selectedRenderer.gameObject.SetActive(true);
+                selectedRenderer.material.color = Color.green;
+            }
+            else
+            {
+                selectedRenderer.gameObject.SetActive(false);
             }
         }
         

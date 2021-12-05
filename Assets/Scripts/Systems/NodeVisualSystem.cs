@@ -12,10 +12,11 @@ namespace Systems
                 .WithAll<Node, NodeSettings>()
                 .WithNone<Prefab>()
                 .WithoutBurst()
-                .ForEach((NodeVisualData visualData, in NodeSettings settings, in Translation translate) =>
+                .ForEach((Entity entity, int entityInQueryIndex, NodeVisualData visualData, in NodeSettings settings, in Translation translate) =>
                 {
                     visualData.visual.transform.position = translate.Value + visualData.offset;
                     visualData.visual.TryChangeLevel(settings.level);
+                    visualData.visual.TrySelect(EntityManager.HasComponent<Selected>(entity));
                     visualData.visual.TryStartUpgradeParticles(settings.upgradeInProgress);
                 }).Run();
         }
